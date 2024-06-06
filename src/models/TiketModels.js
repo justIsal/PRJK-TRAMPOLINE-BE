@@ -2,17 +2,9 @@ const mongoose = require('mongoose');
 
 const TiketSchema = new mongoose.Schema(
     {
-        name: {
-            type: String,
-            required: true,
-        },
-        noWa: {
-            type: String,
-            required: true,
-        },
-        tanggalLahir: {
-            type: String,
-            required: true
+        idUser: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Users'
         },
         kdTempat: {
             type: [String],
@@ -33,7 +25,7 @@ const TiketSchema = new mongoose.Schema(
         isVerified: {
             type: Boolean,
             default: false
-        }
+        },
     },
     {
         collection: "tiket"

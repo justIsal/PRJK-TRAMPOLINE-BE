@@ -26,7 +26,7 @@ const AdminSchema = new mongoose.Schema(
         }
     },
     {
-        collection: "admin-users"
+        collection: "admin"
     }
 );
 const Admin = mongoose.model("admin",AdminSchema);

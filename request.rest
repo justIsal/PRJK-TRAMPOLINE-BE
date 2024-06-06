@@ -289,6 +289,9 @@ Content-Type: application/json
       "kd4",
       "kd5"
     ],
+    "tipePengguna":"Reguler",
+    "jenisKeanggotaan":"Silver",
+    "idAnggota":"31335353",
     "sesiBooking": "16:00:00",
     "tanggalBooking": "2023-11-15",
     "waktuPesan": "2023-11-15",
@@ -296,17 +299,4 @@ Content-Type: application/json
 }
 
 ################################
-POST http://localhost:5174/tiket
-Content-Type: application/json
-
-{
-    "name": "clientBaru222",
-    "noWa": "234543",
-    "tanggalLahir": "2023-11-16",
-    "kdTempat": [
-      "kd8",
-      "kd1"
-    ],
-    "sesiBooking": "16:00:00",
-    "tanggalBooking": "2023-11-15"
-}
+DELETE http://localhost:5174/tiket/6576883076a200a8ebe0d1cf

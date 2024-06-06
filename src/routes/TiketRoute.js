@@ -5,11 +5,9 @@ const authenticateToken = require('../middleware/verifyToken');
 
 router.post('/tiket', tiketController.createTiket);
 
-router.post('/tiket/pesanan',authenticateToken,tiketController.getTiketBypesanan )
+router.get('/tiket',tiketController.getAllTikets)
 
-router.get('/tiket',authenticateToken,tiketController.getAllTikets)
-
-router.get('/tiket/:id',authenticateToken, tiketController.getTiketById);
+router.get('/tiket/:id', tiketController.getTiketById);
 
 router.put('/tiket/:id',authenticateToken, tiketController.updateTiket);
 
