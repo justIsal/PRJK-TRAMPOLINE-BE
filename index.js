@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const connectDB = require('./src/config/db');
 const cookieParser = require("cookie-parser");
 const adminRoutes = require("./src/routes/AdminRoute");
 const tiketRoutes = require("./src/routes/TiketRoute");
@@ -14,24 +15,14 @@ app.use(express.json());
 
 app.use(cors());
 
-mongoose
-  .connect(process.env.DB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("connected to MongoDB");
-    app.listen(process.env.APP_PORT, () => {
-      console.log(`Node API app is running on port ${process.env.APP_PORT}`);
-    });
-    console.log("mantap");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+connectDB();
 
 app.use(adminRoutes);
 app.use(tiketRoutes);
 app.use(login);
 app.use(logout);
 app.use(RefreshToken);
+app.get("/", (req, res) => res.send("Welcome to the Users API!"));
+app.all("*", (req, res) =>res.send("You've tried reaching a route that doesn't exist."));
+
+app.listen(process.env.APP_PORT, () =>console.log(`Server running on port: http://localhost:${process.env.APP_PORT}`));
