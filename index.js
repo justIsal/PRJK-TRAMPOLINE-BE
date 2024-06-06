@@ -13,11 +13,21 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+const allowedOrigins = ['https://prjk-trampoline-ojh5xn7n4-tsalmans-projects.vercel.app']; 
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+
+// Gunakan CORS middleware
+app.use(cors(corsOptions));
 
 connectDB();
 
