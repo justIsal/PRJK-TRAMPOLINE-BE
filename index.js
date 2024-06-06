@@ -13,7 +13,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 
-const allowedOrigins = ['https://prjk-trampoline-ojh5xn7n4-tsalmans-projects.vercel.app']; 
+const allowedOrigins = ['prjk-trampoline-fe.vercel.app']; 
 
 const corsOptions = {
   origin: function (origin, callback) {
