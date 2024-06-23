@@ -27,7 +27,7 @@ const corsOptions = {
 };
 
 // Gunakan CORS middleware
-app.use(cors(corsOptions));
+app.use(cors());
 
 connectDB();
 
